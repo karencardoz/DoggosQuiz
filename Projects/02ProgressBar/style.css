@@ -98,6 +98,11 @@ body {
     transform: scale(0.98);
 }
 
+.btn:disabled{
+    background-color: #999;
+    cursor: not-allowed;
+}
+
 .btn:focus{
     outline: 0;
 }

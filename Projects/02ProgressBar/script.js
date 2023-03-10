@@ -5,15 +5,20 @@ const circles = document.querySelectorAll('.circle')
 
 let currentActive = 1
 
+//On click of the Next button
 next.addEventListener('click', () => {
   currentActive++
-  if (currentActive <= circles.length) {
+  //ensure, current active doesn't exceed number of circles
+  if (currentActive > circles.length) {
+    currentActive = circles.length
   }
   update()
 })
 
+//On click of the Prev button
 prev.addEventListener('click', () => {
   currentActive--
+  //ensure, current active doesn't go below 1
   if (currentActive < 1) {
     currentActive = 1
   }
@@ -21,6 +26,7 @@ prev.addEventListener('click', () => {
 })
 
 function update() {
+  //update the active class on the current active circle
   circles.forEach((circle, i) => {
     if (i < currentActive) {
       circle.classList.add('active')
@@ -28,15 +34,18 @@ function update() {
       circle.classList.remove('active')
     }
   })
+  //update the blue progress bar style
   const actives = document.querySelectorAll('.active')
   progress.style.width =
     ((actives.length - 1) / (circles.length - 1)) * 100 + '%'
-  if (circles.length == 1) {
-    prev.style.disabled = true
-  } else if ((circles.length = 4)) {
-    next.style.disabled = true
+
+  //update the disabled attribute
+  if (currentActive === 1) {
+    prev.disabled = true
+  } else if (currentActive === 4) {
+    next.disabled = true
   } else {
-    prev.style.disabled = false
-    next.style.disabled = false
+    prev.disabled = false
+    next.disabled = false
   }
 }

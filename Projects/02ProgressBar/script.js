@@ -42,7 +42,7 @@ function update() {
   //update the disabled attribute
   if (currentActive === 1) {
     prev.disabled = true
-  } else if (currentActive === 4) {
+  } else if (currentActive === circles.length) {
     next.disabled = true
   } else {
     prev.disabled = false

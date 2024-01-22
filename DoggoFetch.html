@@ -130,7 +130,13 @@
         function getBreedFromURL(url) {
             // The string method .split(char) may come in handy
             // Try to use destructuring as much as you can
-
+            let [, path] = url.split("/breeds/");
+            let [breedID] = path.split("/");
+            let [breedName, subType] = breedID.split("-");
+            return [subType, breedName].join(" ").trim();
+            // let fetchBreed = url.split("/")[4];
+            // let breedVariety = fetchBreed.split("-").reverse().join(" ");
+            // return breedVariety;
         }
 
 

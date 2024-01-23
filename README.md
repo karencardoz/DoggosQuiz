@@ -6,7 +6,7 @@ The Doggos Quiz is a simple web application that loads a random dog image along 
 ## Features
 - Utilizes the Dog API to displays a random dog image.
 - Presents a set of multiple-choice dog breed options.
-- Highlights if the answer selectec is right or wrong.
+- Highlights selected answer is correct or incorrect.
 
 
 ## API Endpoint

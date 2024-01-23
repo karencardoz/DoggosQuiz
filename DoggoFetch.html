@@ -146,7 +146,10 @@
         // then parse the response as a JSON object,
         // finally return the "message" property of its body
         async function fetchMessage(url) {
-
+            const response = await fetch(url);
+            const body = await response.json();
+            let { message } = body;
+            return message
         }
 
 
@@ -171,7 +174,12 @@
             // Create a button element whose name, value, and textContent properties are the value of that choice,
             // attach a "click" event listener with the buttonHandler function,
             // and append the button as a child of the options element
-
+            choicesArray.map(choice => {
+                let button = document.createElement("button");
+                button.textContent = button.value = button.name = choice;
+                button.addEventListener("click", buttonHandler);
+                options.appendChild(button);
+            })
         }
 
 
@@ -204,7 +212,8 @@
         // Asynchronously call the loadQuizData() function,
         // Then call renderQuiz() with the returned imageUrl, correctAnswer, and choices 
 
-
+        const [imgURL, correctAnswer, choices] = await loadQuizData();
+        renderQuiz(imgURL, correctAnswer, choices)
 
 
     </script>

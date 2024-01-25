@@ -32,7 +32,7 @@
 
         const doggos = document.getElementById("dog-target");
 
-        async function init() {
+        function init() {
             document.getElementById("dog-btn")
                 .addEventListener('click', async function (e) {
                     const [imgURL, correctAnswer, choices] = await loadQuizData();

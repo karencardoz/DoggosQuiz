@@ -36,6 +36,7 @@
             document.getElementById("dog-btn")
                 .addEventListener('click', async function (e) {
                     const [imgURL, correctAnswer, choices] = await loadQuizData();
+                    document.getElementById("options").innerHTML = null
                     renderQuiz(imgURL, correctAnswer, choices)
                 })
         }
